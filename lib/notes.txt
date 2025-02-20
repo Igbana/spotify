@@ -1,0 +1,18 @@
+For clean architecture, we use 3 major folders:
+    - data
+        - sources
+        - repository
+        - models
+    - doamin
+        - entites
+        - repositories
+        - usecases
+    - presentation
+        - bloc
+        - pages
+        - widgets
+
+In addition, you can have the following folders:
+    - common
+    - core
+
