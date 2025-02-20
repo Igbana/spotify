@@ -16,3 +16,15 @@ In addition, you can have the following folders:
     - common
     - core
 
+Then you create a roadmap like this:
+[x] Program Structure
+[ ]Theme of application
+[ ] Assets and fonts
+[ ] Splash page
+[ ] Get started page
+[ ] Choose mode page
+[ ] Choose mode logic
+[ ] Login/signup screen
+[ ] Login page
+[ ] Signup page
+[ ] Firebase setup
