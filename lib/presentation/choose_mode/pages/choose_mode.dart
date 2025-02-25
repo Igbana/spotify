@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widget/button/default.dart';
-import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/core/configs/theme/assets/app_images.dart';
 import 'package:spotify/core/configs/theme/assets/app_vectors.dart';
 
@@ -16,7 +15,7 @@ class ChooseModePage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AppImages.introBg),
+                image: AssetImage(AppImages.chooseModeBg),
                 fit: BoxFit.fill,
               ),
             ),
@@ -33,7 +32,7 @@ class ChooseModePage extends StatelessWidget {
                 ),
                 const Spacer(),
                 const Text(
-                  "Enjoy listening to Music",
+                  "Choose Mode",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -42,28 +41,22 @@ class ChooseModePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 21),
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.grey,
-                      fontSize: 17,
-                    ),
-                  ),
-                ),
+                    padding: EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Row(
+                      children: [],
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
                 DefaultButton(
-                    onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ChooseModePage(),
-                          ),
-                        ),
-                    title: "Get Started")
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Scaffold(),
+                    ),
+                  ),
+                  title: "Continue",
+                )
               ],
             ),
           ),
@@ -71,5 +64,4 @@ class ChooseModePage extends StatelessWidget {
       ),
     );
   }
-
 }
