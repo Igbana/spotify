@@ -5,7 +5,7 @@ class DefaultButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.title,
-    this.height = 18,
+    this.height = 80,
   });
 
   final VoidCallback onPressed;
@@ -15,7 +15,7 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(height)),
       child: Text(title),
     );
