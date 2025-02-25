@@ -4,6 +4,7 @@ import 'package:spotify/common/widget/button/default.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/core/configs/theme/assets/app_images.dart';
 import 'package:spotify/core/configs/theme/assets/app_vectors.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -14,13 +15,16 @@ class GetStartedPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 69, horizontal: 23),
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.introBg),
                 fit: BoxFit.fill,
               ),
             ),
+          ),
+          Container(color: Colors.black12),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 69, horizontal: 23),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -53,11 +57,17 @@ class GetStartedPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                DefaultButton(onPressed: () {}, title: "Get Started")
+                DefaultButton(
+                    onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChooseModePage(),
+                          ),
+                        ),
+                    title: "Get Started")
               ],
             ),
           ),
-          Container(color: Colors.black12)
         ],
       ),
     );
