@@ -40,10 +40,34 @@ class ChooseModePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 21),
-                const Padding(
+                Padding(
                     padding: EdgeInsets.symmetric(horizontal: 18.0),
                     child: Row(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 73 / 2,
+                              backgroundColor: Colors.white10,
+                              child: SvgPicture.asset(AppVectors.moon),
+                            ),
+                            const SizedBox(height: 10),
+                            const Text("Dark Mode"),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 73 / 2,
+                              backgroundColor: Colors.white10,
+                              child: SvgPicture.asset(AppVectors.sun),
+                            ),
+                            const SizedBox(height: 10),
+                            const Text("Light Mode"),
+                          ],
+                        ),
+                      ],
                     )),
                 const SizedBox(
                   height: 20,

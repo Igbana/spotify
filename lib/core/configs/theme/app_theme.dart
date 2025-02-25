@@ -13,6 +13,7 @@ class AppTheme {
         foregroundColor: Colors.white,
         textStyle: const TextStyle(
           fontSize: 20,
+          color: AppColors.textColor,
           fontWeight: FontWeight.bold,
         ),
         shape: RoundedRectangleBorder(
@@ -33,6 +34,7 @@ class AppTheme {
         foregroundColor: Colors.white,
         textStyle: const TextStyle(
           fontSize: 20,
+          color: AppColors.textColor,
           fontWeight: FontWeight.bold,
         ),
         shape: RoundedRectangleBorder(
