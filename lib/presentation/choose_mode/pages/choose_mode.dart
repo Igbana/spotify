@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widget/button/default.dart';
@@ -41,36 +43,64 @@ class ChooseModePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 21),
                 Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 73 / 2,
-                              backgroundColor: Colors.white10,
-                              child: SvgPicture.asset(AppVectors.moon),
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 87, sigmaY: 87),
+                              child: CircleAvatar(
+                                radius: 73 / 2,
+                                backgroundColor: Colors.white10,
+                                child: SvgPicture.asset(AppVectors.moon),
+                              ),
                             ),
-                            const SizedBox(height: 10),
-                            const Text("Dark Mode"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 73 / 2,
-                              backgroundColor: Colors.white10,
-                              child: SvgPicture.asset(AppVectors.sun),
+                          ),
+                          const SizedBox(height: 10),
+                          const Text(
+                            "Dark Mode",
+                            style: TextStyle(
+                              color: Color(0xFFDADADA),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
                             ),
-                            const SizedBox(height: 10),
-                            const Text("Light Mode"),
-                          ],
-                        ),
-                      ],
-                    )),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 87,
+                                sigmaY: 87,
+                              ),
+                              child: CircleAvatar(
+                                radius: 73 / 2,
+                                backgroundColor: Colors.white10,
+                                child: SvgPicture.asset(AppVectors.sun),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          const Text(
+                            "Light Mode",
+                            style: TextStyle(
+                              color: Color(0xFFDADADA),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(
-                  height: 20,
+                  height: 68,
                 ),
                 DefaultButton(
                   onPressed: () => Navigator.push(
