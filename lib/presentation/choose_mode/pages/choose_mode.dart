@@ -51,23 +51,44 @@ class ChooseModePage extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          GestureDetector(
-                            onTap: () => context
-                                .read<ThemeCubit>()
-                                .updateTheme(ThemeMode.dark),
-                            child: ClipOval(
-                              child: BackdropFilter(
-                                filter:
-                                    ImageFilter.blur(sigmaX: 87, sigmaY: 87),
-                                child: CircleAvatar(
-                                  radius: 73 / 2,
-                                  backgroundColor: Colors.white10,
-                                  child: SvgPicture.asset(AppVectors.moon),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            direction: Axis.vertical,
+                            verticalDirection: VerticalDirection.up,
+                            spacing: -11,
+                            children: [
+                              BlocBuilder<ThemeCubit, ThemeMode>(
+                                buildWhen: (previous, current) =>
+                                    previous != current,
+                                builder: (context, themeMode) {
+                                  if (themeMode == ThemeMode.dark) {
+                                    return SvgPicture.asset(
+                                      AppVectors.themeIndicator,
+                                    );
+                                  } else {
+                                    return SizedBox(height: 16.5);
+                                  }
+                                },
+                              ),
+                              GestureDetector(
+                                onTap: () => context
+                                    .read<ThemeCubit>()
+                                    .updateTheme(ThemeMode.dark),
+                                child: ClipOval(
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                        sigmaX: 87, sigmaY: 87),
+                                    child: CircleAvatar(
+                                      radius: 73 / 2,
+                                      backgroundColor: Colors.white10,
+                                      child: SvgPicture.asset(AppVectors.moon),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 11.5),
                           const Text(
                             "Dark Mode",
                             style: TextStyle(
@@ -80,25 +101,46 @@ class ChooseModePage extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          GestureDetector(
-                            onTap: () => context
-                                .read<ThemeCubit>()
-                                .updateTheme(ThemeMode.light),
-                            child: ClipOval(
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(
-                                  sigmaX: 87,
-                                  sigmaY: 87,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 73 / 2,
-                                  backgroundColor: Colors.white10,
-                                  child: SvgPicture.asset(AppVectors.sun),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            direction: Axis.vertical,
+                            verticalDirection: VerticalDirection.up,
+                            spacing: -11,
+                            children: [
+                              BlocBuilder<ThemeCubit, ThemeMode>(
+                                buildWhen: (previous, current) =>
+                                    previous != current,
+                                builder: (context, themeMode) {
+                                  if (themeMode == ThemeMode.light) {
+                                    return SvgPicture.asset(
+                                      AppVectors.themeIndicator,
+                                    );
+                                  } else {
+                                    return SizedBox(height: 16.5);
+                                  }
+                                },
+                              ),
+                              GestureDetector(
+                                onTap: () => context
+                                    .read<ThemeCubit>()
+                                    .updateTheme(ThemeMode.light),
+                                child: ClipOval(
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 87,
+                                      sigmaY: 87,
+                                    ),
+                                    child: CircleAvatar(
+                                      radius: 73 / 2,
+                                      backgroundColor: Colors.white10,
+                                      child: SvgPicture.asset(AppVectors.sun),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 11.5),
                           const Text(
                             "Light Mode",
                             style: TextStyle(
