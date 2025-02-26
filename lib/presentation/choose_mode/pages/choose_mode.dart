@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widget/button/default.dart';
 import 'package:spotify/core/configs/theme/assets/app_images.dart';
 import 'package:spotify/core/configs/theme/assets/app_vectors.dart';
+import 'package:spotify/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseModePage extends StatelessWidget {
   const ChooseModePage({super.key});
@@ -49,13 +51,19 @@ class ChooseModePage extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          ClipOval(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 87, sigmaY: 87),
-                              child: CircleAvatar(
-                                radius: 73 / 2,
-                                backgroundColor: Colors.white10,
-                                child: SvgPicture.asset(AppVectors.moon),
+                          GestureDetector(
+                            onTap: () => context
+                                .read<ThemeCubit>()
+                                .updateTheme(ThemeMode.dark),
+                            child: ClipOval(
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 87, sigmaY: 87),
+                                child: CircleAvatar(
+                                  radius: 73 / 2,
+                                  backgroundColor: Colors.white10,
+                                  child: SvgPicture.asset(AppVectors.moon),
+                                ),
                               ),
                             ),
                           ),
@@ -72,16 +80,21 @@ class ChooseModePage extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          ClipOval(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(
-                                sigmaX: 87,
-                                sigmaY: 87,
-                              ),
-                              child: CircleAvatar(
-                                radius: 73 / 2,
-                                backgroundColor: Colors.white10,
-                                child: SvgPicture.asset(AppVectors.sun),
+                          GestureDetector(
+                            onTap: () => context
+                                .read<ThemeCubit>()
+                                .updateTheme(ThemeMode.light),
+                            child: ClipOval(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 87,
+                                  sigmaY: 87,
+                                ),
+                                child: CircleAvatar(
+                                  radius: 73 / 2,
+                                  backgroundColor: Colors.white10,
+                                  child: SvgPicture.asset(AppVectors.sun),
+                                ),
                               ),
                             ),
                           ),
