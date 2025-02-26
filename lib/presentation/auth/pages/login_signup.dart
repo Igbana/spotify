@@ -5,6 +5,7 @@ import 'package:spotify/common/widget/button/default.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/core/configs/theme/assets/app_images.dart';
 import 'package:spotify/core/configs/theme/assets/app_vectors.dart';
+import 'package:spotify/presentation/auth/pages/register.dart';
 
 class LoginSignupPage extends StatelessWidget {
   const LoginSignupPage({super.key});
@@ -72,7 +73,7 @@ class LoginSignupPage extends StatelessWidget {
                         onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Scaffold(),
+                            builder: (context) => const RegisterPage(),
                           ),
                         ),
                         title: "Register",
@@ -80,7 +81,12 @@ class LoginSignupPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Scaffold(),
+                          ),
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
